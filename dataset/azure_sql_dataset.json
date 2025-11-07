@@ -1,0 +1,12 @@
+{
+	"name": "azure_sql_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AZURE_SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
