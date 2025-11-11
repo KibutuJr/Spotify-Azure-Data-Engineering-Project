@@ -13,6 +13,9 @@
 
 This repository demonstrates a **real-time, enterprise-style data engineering project** built on Azure and Databricks using a simulated Spotify streaming dataset. The objective was to deliver **metadata-driven ingestion**, **incremental and backfill processing**, **stream and batch transformations**, and **analytical visualisations** — enabling actionable insights into user listening behaviour, track popularity and market trends.
 
+
+Read the full Medium article here: [From Zero to Streaming Insights: Building a Data Platform on Azure & Databricks](https://medium.com/@codegnerdev/from-zero-to-streaming-insights-building-a-data-platform-on-azure-databricks-a9398ec39dee)
+
 ---
 
 ## 🏗 Architecture & Implementation
