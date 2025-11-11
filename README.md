@@ -22,32 +22,32 @@ This repository demonstrates a **real-time, enterprise-style data engineering pr
 The data flows from source → Bronze (raw) → Silver (cleaned, transformed) → Gold (analytics) layers. Azure Data Factory handles ingestion, Azure SQL serves as source storage, Azure Databricks carries out transformations, and Unity Catalog, Delta Lake, and CI/CD practices ensure governance, versioning and production readiness.
 
 ### 2. Git & Version Control  
-![Git configured](images/git_configured.png)  
+![Git configured](images/git_configured.PNG)  
 The project structure is fully integrated with GitHub, using branching (`dev`, `main`, `feature/...`). Infrastructure pipelines, notebooks and Databricks asset bundles are all versioned and deployed via GitHub Actions.
 
 ### 3. Source Tables & Linked Services  
-![Source tables & linked services](images/source_tables_linked_services.png)  
+![Source tables & linked services](images/source_tables_linked_services.PNG)  
 Azure SQL Database contains fact & dimension tables. Azure Data Factory uses Linked Services and parameterised datasets to connect to these sources and the data lake.
 
 ### 4. Lookup & CDC File Handling  
-![Debug lookup](images/debug_lookup.png)  
+![Debug lookup](images/debug_lookup.PNG)  
 The pipeline uses a JSON `cdc.json` file in Azure Data Lake to track last read timestamps. A Lookup activity reads it dynamically to determine incremental load criteria.
 
 ### 5. Ingestion & Copy  
-![Data copied to DataFactory](images/data_copied_to_datafactory.png)  
+![Data copied to DataFactory](images/data_copied_to_datafactory.PNG)  
 Incremental loads and backfill logic are executed via Azure Data Factory pipelines. Custom utilities handle branching, timestamp dynamic SQL and JSON updates.
 
 ### 6. Metadata-Driven Pipeline & Looping  
-![Looping the pipelines](images/looping_the_pipelines.png)  
+![Looping the pipelines](images/looping_the_pipelines.PNG)  
 Pipeline loops through parameterised tables, with branching logic for new data, historical backfills and CDC folder management.
 
 ### 7. Monitoring & Alerts  
-![Logic App HTTP trigger & email](images/logic_app_http.png)  
+![Logic App HTTP trigger & email](images/logic_app_http.PNG)  
 A Logic App triggers emails and alerts through web activity when pipelines fail — providing robust operational monitoring.
 
 ### 8. Unity Catalog & Layers  
-![Metastore created](images/metastore_created.png)  
-![Bronze/Silver/Gold external locations](images/bronze_layer_external_location.png)  
+![Metastore created](images/metastore_created.PNG)  
+![Bronze/Silver/Gold external locations](images/bronze_layer_external_location.PNG)  
 The project uses Unity Catalog metastore, and external storage containers for each layer (Bronze, Silver, Gold) ensuring proper segregation and governance.
 
 ---
@@ -66,7 +66,7 @@ display(track_engagement.limit(10))
 ````
 
 **Visual:**
-![Top Tracks by Engagement](images/top_tracks_engagement.png)
+![Top Tracks by Engagement](images/top_tracks_engagement.PNG)
 
 **Insight:**
 Highlights which tracks receive the **highest listener engagement**, indicating which songs are most captivating to users.
@@ -85,7 +85,7 @@ display(artist_streams.limit(10))
 ```
 
 **Visual:**
-![Top Artists by Total Streams](images/top_artists_streams.png)
+![Top Artists by Total Streams](images/top_artists_streams.PNG)
 
 **Insight:**
 Identifies **top-performing artists** by total stream volume — valuable for artist performance benchmarking and promotional strategy.
@@ -105,7 +105,7 @@ display(country_listening.limit(10))
 ```
 
 **Visual:**
-![Top Countries by Listening Time](images/top_countries_listening.png)
+![Top Countries by Listening Time](images/top_countries_listening.PNG)
 
 **Insight:**
 Reveals which **locations produce the highest listener activity**, supporting marketing and regional strategy decisions.
@@ -159,8 +159,4 @@ Reveals which **locations produce the highest listener activity**, supporting ma
 🌐 [Portfolio](https://kibutujr.vercel.app)
 
 ---
-
-
-```
-
 
