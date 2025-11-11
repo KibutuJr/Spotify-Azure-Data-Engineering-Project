@@ -1,10 +1,10 @@
 # 🎧 Spotify Azure Data Engineering Project
 
-![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4?logo=microsoft-azure&logoColor=white)  
-![Databricks](https://img.shields.io/badge/Platform-Databricks-EF3E2E?logo=databricks&logoColor=white)  
-![Python](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)  
-![PySpark](https://img.shields.io/badge/Tech-PySpark-FDEE21?logo=apachespark&logoColor=black)  
-![SQL](https://img.shields.io/badge/Database-Azure_SQL_DB-2C7EBB?logo=microsoftsqlserver&logoColor=white)  
+![Azure](https://img.shields.io/badge/Cloud-Azure-0078D4?logo=microsoft-azure&logoColor=white)
+![Databricks](https://img.shields.io/badge/Platform-Databricks-EF3E2E?logo=databricks&logoColor=white)
+![Python](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)
+![PySpark](https://img.shields.io/badge/Tech-PySpark-FDEE21?logo=apachespark&logoColor=black)
+![SQL](https://img.shields.io/badge/Database-Azure_SQL_DB-2C7EBB?logo=microsoftsqlserver&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
 
 ---
@@ -19,35 +19,45 @@ This repository demonstrates a **real-time, enterprise-style data engineering pr
 
 ### 1. Architecture  
 ![Project architecture](images/project_architecture.png)  
+
 The data flows from source → Bronze (raw) → Silver (cleaned, transformed) → Gold (analytics) layers. Azure Data Factory handles ingestion, Azure SQL serves as source storage, Azure Databricks carries out transformations, and Unity Catalog, Delta Lake, and CI/CD practices ensure governance, versioning and production readiness.
 
 ### 2. Git & Version Control  
-![Git configured](images/git_configured.PNG)  
+![Git configured](images/git_configured.PNG)
+
 The project structure is fully integrated with GitHub, using branching (`dev`, `main`, `feature/...`). Infrastructure pipelines, notebooks and Databricks asset bundles are all versioned and deployed via GitHub Actions.
 
 ### 3. Source Tables & Linked Services  
+
 ![Source tables & linked services](images/source_tables_linked_services.PNG)  
 Azure SQL Database contains fact & dimension tables. Azure Data Factory uses Linked Services and parameterised datasets to connect to these sources and the data lake.
 
 ### 4. Lookup & CDC File Handling  
+
 ![Debug lookup](images/debug_lookup.PNG)  
+
 The pipeline uses a JSON `cdc.json` file in Azure Data Lake to track last read timestamps. A Lookup activity reads it dynamically to determine incremental load criteria.
 
 ### 5. Ingestion & Copy  
 ![Data copied to DataFactory](images/data_copied_to_datafactory.PNG)  
+
 Incremental loads and backfill logic are executed via Azure Data Factory pipelines. Custom utilities handle branching, timestamp dynamic SQL and JSON updates.
 
 ### 6. Metadata-Driven Pipeline & Looping  
 ![Looping the pipelines](images/looping_the_pipelines.PNG)  
+
 Pipeline loops through parameterised tables, with branching logic for new data, historical backfills and CDC folder management.
 
 ### 7. Monitoring & Alerts  
 ![Logic App HTTP trigger & email](images/logic_app_http.PNG)  
+
 A Logic App triggers emails and alerts through web activity when pipelines fail — providing robust operational monitoring.
 
 ### 8. Unity Catalog & Layers  
 ![Metastore created](images/metastore_created.PNG)  
+
 ![Bronze/Silver/Gold external locations](images/bronze_layer_external_location.PNG)  
+
 The project uses Unity Catalog metastore, and external storage containers for each layer (Bronze, Silver, Gold) ensuring proper segregation and governance.
 
 ---
@@ -66,10 +76,11 @@ display(track_engagement.limit(10))
 ````
 
 **Visual:**
-![Top Tracks by Engagement](images/top_tracks_engagement.PNG)
+![Top Tracks by Listener Engagement](images/nameVstream.png)
 
 **Insight:**
-Highlights which tracks receive the **highest listener engagement**, indicating which songs are most captivating to users.
+Reveals which tracks generate the **highest listener engagement and replay value**, showing the songs that most consistently capture user attention.
+This metric is vital for **playlist optimization**, identifying potential chart-toppers, and understanding **listener retention behavior** across regions and demographics.
 
 ---
 
@@ -85,10 +96,11 @@ display(artist_streams.limit(10))
 ```
 
 **Visual:**
-![Top Artists by Total Streams](images/top_artists_streams.PNG)
+![Top Artists by Total Streams](images/artistVstream.png)
 
 **Insight:**
-Identifies **top-performing artists** by total stream volume — valuable for artist performance benchmarking and promotional strategy.
+Highlights the **most streamed artists across all listening sessions**, providing clear visibility into market leaders and audience loyalty trends.
+This analysis helps identify **artists driving platform engagement**, supporting **marketing decisions, contract negotiations**, and **targeted promotions** based on actual audience performance data.
 
 ---
 
@@ -105,12 +117,14 @@ display(country_listening.limit(10))
 ```
 
 **Visual:**
-![Top Countries by Listening Time](images/top_countries_listening.PNG)
+![Top Countries by Listening Time](images/countryVduration.png)
 
 **Insight:**
-Reveals which **locations produce the highest listener activity**, supporting marketing and regional strategy decisions.
+Displays the **geographical distribution of listening activity**, pinpointing which countries exhibit the longest playback durations and highest engagement rates.
+These insights enable **localized marketing strategies**, **regional content recommendations**, and **expansion prioritization** based on real-world listener behavior and consumption patterns.
 
 ---
+
 
 ## 🔧 Key Outcomes & Learnings
 
